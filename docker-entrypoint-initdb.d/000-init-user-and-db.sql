@@ -1,0 +1,5 @@
+CREATE DATABASE todo_db;
+CREATE DATABASE todo_db_test;
+
+GRANT ALL PRIVILEGES ON DATABASE todo_db TO postgres;
+GRANT ALL PRIVILEGES ON DATABASE todo_db_test TO postgres;

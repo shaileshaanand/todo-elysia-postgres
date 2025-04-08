@@ -9,7 +9,7 @@ services:
       - ./:/home/bun/app
       - /home/bun/app/node_modules
     environment:
-      - DB_URL=postgresql://pguser:todo_1234@db:5432/tododb
+      - DB_URL=postgresql://postgres:todo_1234@db:5432/todo_db
     working_dir: /home/bun/app/packages/backend
     command: bun run dev
     depends_on:
@@ -18,10 +18,10 @@ services:
     image: postgres:17-alpine
     volumes:
       - db_data:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment:
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=todo_1234
-      - POSTGRES_USER=pguser
-      - POSTGRES_DB=tododb
 
 volumes:
   db_data:
