@@ -1,0 +1,15 @@
+{
+  "name": "todo-elysia-postgres",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "postgres": "^3.4.5"
+  }
+}

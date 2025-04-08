@@ -1,0 +1,8 @@
+FROM oven/bun:1.2.8-alpine
+RUN mkdir -p /home/bun/app/node_modules && mkdir -p /home/bun/app/packages/backend && chown -R bun:bun /home/bun
+USER bun
+WORKDIR /home/bun/app
+COPY --chown=bun:bun bun.lock ./
+COPY --chown=bun:bun package.json ./
+COPY --chown=bun:bun ./packages/backend/package.json ./
+RUN bun install
